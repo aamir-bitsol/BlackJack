@@ -16,9 +16,8 @@ h1{
 }
 
 button{
-    padding-top: 10px;
-    margin-bottom: 5px;
-    margin-top: 5px;
+    padding: 10px 0px 10px 0px;
+    margin: 10px 0 10px 0px;
     color: #016f32;
     width: 150px;
     background-color: goldenrod;
