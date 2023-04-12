@@ -1,4 +1,3 @@
-// declaring variables with types
 let cards = [];
 let sum = 0;
 let hasBlackJack = false;
