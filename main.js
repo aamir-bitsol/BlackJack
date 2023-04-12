@@ -14,7 +14,7 @@ const user = {
 let messageEl = document.getElementById("message-el");
 let sumEl = document.getElementById("sum-el");
 let cardsEl = document.getElementById("cards-el");
-let userEl = document.getElementById('user-info');
+const userEl = document.getElementById('user-info');
 
 if (userEl !== null) {
     userEl.textContent = "".concat(user.name, " : $").concat(user.prize);
