@@ -37,26 +37,26 @@ function startGame() {
 }
 // displays cards and checks if user got blackjack or user wants to draw a card or he is out of the game
 function renderGame() {
-    if (cardsEl !== null && sumEl !== null) {
-        cardsEl.textContent = "Cards: ";
-        for (var i = 0; i < cards.length; i++) {
-            cardsEl.textContent += cards[i] + " ";
-        }
-        sumEl.textContent = "Sum: " + sum;
-        if (sum <= 20) {
-            message = "Do you want to draw a new card?";
-        }
-        else if (sum === 21) {
-            message = "You've got Blackjack!";
-            hasBlackJack = true;
-        }
-        else {
-            message = "You're out of the game!";
-            isAlive = false;
-        }
-        if (messageEl !== null) {
-            messageEl.textContent = message;
-        }
+    if (!cardsEl || !sumEl)
+        return null;
+    cardsEl.textContent = "Cards: ";
+    for (var i = 0; i < cards.length; i++) {
+        cardsEl.textContent += cards[i] + " ";
+    }
+    sumEl.textContent = "Sum: " + sum;
+    if (sum <= 20) {
+        message = "Do you want to draw a new card?";
+    }
+    else if (sum === 21) {
+        message = "You've got Blackjack!";
+        hasBlackJack = true;
+    }
+    else {
+        message = "You're out of the game!";
+        isAlive = false;
+    }
+    if (messageEl !== null) {
+        messageEl.textContent = message;
     }
 }
 // checks if user is eligible for card draw and generates a random card for user

@@ -4,7 +4,12 @@ let sum: number = 0
 let hasBlackJack: boolean = false
 let isAlive: boolean = false
 let message: string = ""
-const user = {
+
+interface userType{
+    name: string,
+    prize: number,
+}
+const user: userType = {
     name : "Muhammad Aamir Zaman",
     prize : 200,
 }
@@ -40,27 +45,27 @@ function startGame(): void {
 }
 
 // displays cards and checks if user got blackjack or user wants to draw a card or he is out of the game
-function renderGame(): void {
-    if(cardsEl !== null  && sumEl !== null){
-        cardsEl.textContent = "Cards: "
-        for (let i = 0; i < cards.length; i++) {
-            cardsEl.textContent += cards[i] + " "
-        }
+function renderGame(): void| null {
+    if(!cardsEl || !sumEl) return null
         
-        sumEl.textContent = "Sum: " + sum
-        if (sum <= 20) {
-            message = "Do you want to draw a new card?"
-        } else if (sum === 21) {
-            message = "You've got Blackjack!"
-            hasBlackJack = true
-        } else {
-            message = "You're out of the game!"
-            isAlive = false
-        }
-        
-        if(messageEl !== null){
-            messageEl.textContent = message
-        }
+    cardsEl.textContent = "Cards: "
+    for (let i = 0; i < cards.length; i++) {
+        cardsEl.textContent += cards[i] + " "
+    }
+    
+    sumEl.textContent = "Sum: " + sum
+    if (sum <= 20) {
+        message = "Do you want to draw a new card?"
+    } else if (sum === 21) {
+        message = "You've got Blackjack!"
+        hasBlackJack = true
+    } else {
+        message = "You're out of the game!"
+        isAlive = false
+    }
+    
+    if(messageEl !== null){
+        messageEl.textContent = message
     }
 }
 
