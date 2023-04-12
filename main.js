@@ -1,4 +1,3 @@
-// declaring variables with types
 let cards = [];
 let sum = 0;
 let hasBlackJack = false;
@@ -11,11 +10,10 @@ const user = {
 };
 
 // accessing DOM elements
-let messageEl = document.getElementById("message-el");
-let sumEl = document.getElementById("sum-el");
-let cardsEl = document.getElementById("cards-el");
-let userEl = document.getElementById('user-info');
-
+const messageEl = document.getElementById("message-el");
+const sumEl = document.getElementById("sum-el");
+const cardsEl = document.getElementById("cards-el");
+const userEl = document.getElementById('user-info');
 if (userEl !== null) {
     userEl.textContent = "".concat(user.name, " : $").concat(user.prize);
 }
@@ -43,26 +41,26 @@ function startGame() {
 
 // displays cards and checks if user got blackjack or user wants to draw a card or he is out of the game
 function renderGame() {
-    if (!cardsEl || !sumEl) return null;
-    
-    cardsEl.textContent = "Cards: ";
-    for (var i = 0; i < cards.length; i++) {
-        cardsEl.textContent += cards[i] + " ";
-    }
-    sumEl.textContent = "Sum: " + sum;
-    if (sum <= 20) {
-        message = "Do you want to draw a new card?";
-    }
-    else if (sum === 21) {
-        message = "You've got Blackjack!";
-        hasBlackJack = true;
-    }
-    else {
-        message = "You're out of the game!";
-        isAlive = false;
-    }
-    if (messageEl !== null) {
-        messageEl.textContent = message;
+    if (cardsEl !== null && sumEl !== null) {
+        cardsEl.textContent = "Cards: ";
+        for (var i = 0; i < cards.length; i++) {
+            cardsEl.textContent += cards[i] + " ";
+        }
+        sumEl.textContent = "Sum: " + sum;
+        if (sum <= 20) {
+            message = "Do you want to draw a new card?";
+        }
+        else if (sum === 21) {
+            message = "You've got Blackjack!";
+            hasBlackJack = true;
+        }
+        else {
+            message = "You're out of the game!";
+            isAlive = false;
+        }
+        if (messageEl !== null) {
+            messageEl.textContent = message;
+        }
     }
 }
 
